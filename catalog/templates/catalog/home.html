@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-section text-center">
+    <h1 class="display-4 fw-bold mb-4">Инженерный подбор оборудования</h1>
+    <p class="lead mb-5 text-light opacity-75">Автоматический расчет скорости потока и подбор трубной продукции с соответствующей запорной арматурой по заданным параметрам системы.</p>
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'calculator' %}" class="btn btn-primary btn-lg px-4"><i class="bi bi-lightning-charge me-2"></i>Начать расчет</a>
+        <a href="{% url 'pipe_list' %}" class="btn btn-outline-light btn-lg px-4"><i class="bi bi-journal-text me-2"></i>Смотреть каталог</a>
+    </div>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-md-4">
+        <div class="card catalog-card p-4 text-center">
+            <i class="bi bi-speedometer2 card-icon"></i>
+            <h5 class="fw-bold">Точный расчет</h5>
+            <p class="text-muted small">Вычисление скорости потока жидкости на основе расхода и внутреннего диаметра.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card catalog-card p-4 text-center">
+            <i class="bi bi-database-check card-icon"></i>
+            <h5 class="fw-bold">Обширная база</h5>
+            <p class="text-muted small">Широкий ассортимент стальных и полимерных труб различных стандартов.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card catalog-card p-4 text-center">
+            <i class="bi bi-diagram-3 card-icon"></i>
+            <h5 class="fw-bold">Связь элементов</h5>
+            <p class="text-muted small">Автоматическая привязка подходящих задвижек и кранов к выбранной трубе.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

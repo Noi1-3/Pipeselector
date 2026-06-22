@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card catalog-card">
+            <div class="card-body p-4">
+                <h1 class="section-title mb-4">{{ pipe.name }}</h1>
+
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Материал</div>
+                    <div class="col-sm-7 property-value">{{ pipe.material }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Диаметр</div>
+                    <div class="col-sm-7 property-value">{{ pipe.diameter_mm }} мм</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Толщина стенки</div>
+                    <div class="col-sm-7 property-value">{{ pipe.wall_thickness_mm }} мм</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Максимальное давление</div>
+                    <div class="col-sm-7 property-value">{{ pipe.max_pressure_bar }} бар</div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-sm-5 property-label">Вес на метр</div>
+                    <div class="col-sm-7 property-value">{{ pipe.weight_per_meter }} кг/м</div>
+                </div>
+
+                <h4 class="mb-3">Арматура того же диаметра</h4>
+
+                {% if valves %}
+                    <div class="list-group">
+                        {% for valve in valves %}
+                            <a href="{% url 'valve_detail' valve.id %}" class="list-group-item list-group-item-action">
+                                <strong>{{ valve.name }}</strong><br>
+                                <span class="text-muted">{{ valve.valve_type }}, {{ valve.diameter_mm }} мм, {{ valve.max_pressure_bar }} бар</span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-muted mb-0">Подходящая арматура отсутствует.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

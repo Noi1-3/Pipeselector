@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card catalog-card">
+            <div class="card-body p-4">
+                <h1 class="section-title mb-4">{{ valve.name }}</h1>
+
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Тип</div>
+                    <div class="col-sm-7 property-value">{{ valve.valve_type }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Диаметр</div>
+                    <div class="col-sm-7 property-value">{{ valve.diameter_mm }} мм</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-5 property-label">Максимальное давление</div>
+                    <div class="col-sm-7 property-value">{{ valve.max_pressure_bar }} бар</div>
+                </div>
+                <div class="row mb-0">
+                    <div class="col-sm-5 property-label">Вес</div>
+                    <div class="col-sm-7 property-value">{{ valve.weight }} кг</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

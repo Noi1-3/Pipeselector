@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="fw-bold mb-4"><i class="bi bi-distribute-vertical me-2 text-primary"></i>Каталог труб</h2>
+<div class="row g-4">
+    {% for pipe in pipes %}
+    <div class="col-md-6 col-lg-4">
+        <div class="card catalog-card">
+            <div class="card-body">
+                <h5 class="fw-bold mb-3">
+                    <a href="{% url 'pipe_detail' pipe.id %}" class="text-decoration-none text-dark">{{ pipe.name }}</a>
+                </h5>
+                <div class="property-row">
+                    <span class="property-label">Материал</span>
+                    <span class="property-value">{{ pipe.material }}</span>
+                </div>
+                <div class="property-row">
+                    <span class="property-label">Диаметр</span>
+                    <span class="property-value">{{ pipe.diameter_mm }} мм</span>
+                </div>
+                <div class="property-row">
+                    <span class="property-label">Макс. давление</span>
+                    <span class="property-value">{{ pipe.max_pressure_bar }} бар</span>
+                </div>
+                <div class="mt-3 text-end">
+                    <a href="{% url 'pipe_detail' pipe.id %}" class="btn btn-sm btn-outline-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
